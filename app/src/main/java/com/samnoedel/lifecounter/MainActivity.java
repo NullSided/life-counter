@@ -1,18 +1,18 @@
 package com.samnoedel.lifecounter;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.view.View;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentManager fm = getSupportFragmentManager();
+        FragmentManager fm = getFragmentManager();
         Fragment p1Fragment = fm.findFragmentById(R.id.playerOneFragmentContainer);
         Fragment p2Fragment = fm.findFragmentById(R.id.playerTwoFragmentContainer);
 
