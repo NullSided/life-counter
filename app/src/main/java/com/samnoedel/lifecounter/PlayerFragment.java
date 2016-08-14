@@ -35,7 +35,7 @@ public class PlayerFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPlayer = new Player();
+        mPlayer = new Player(GamePlayer.PLAYER_ONE);
     }
 
     @Override

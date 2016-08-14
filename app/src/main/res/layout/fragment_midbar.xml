@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.samnoedel.lifecounter.MidbarFragment">
+
+    <TextView
+        android:id="@+id/player1Clock"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:text="00:00"
+        android:textSize="24sp"/>
+
+    <ImageView
+        android:id="@+id/passTurn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:overScrollMode="never"
+        android:scaleType="centerInside"
+        android:src="@drawable/pass_turn"
+        android:contentDescription="@string/acc_pass_turn_button" />
+
+    <TextView
+        android:id="@+id/player2Clock"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:rotation="180"
+        android:text="00:00"
+        android:textSize="24sp"/>
+
+</RelativeLayout>

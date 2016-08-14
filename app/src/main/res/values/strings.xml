@@ -35,4 +35,8 @@
     <!-- Accessibility -->
     <string name="acc_divider">Player divider</string>
     <string name="acc_player_settings">Player settings</string>
+    <string name="acc_pass_turn_button">Pass turn button</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

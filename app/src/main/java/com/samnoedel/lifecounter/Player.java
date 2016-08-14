@@ -4,25 +4,32 @@ import java.io.Serializable;
 
 public class Player implements Serializable {
 
-    private int lifeTotal;
+    private int mLifeTotal;
 
-    public Player() {
-        lifeTotal = 20;
+    private GamePlayer mGamePlayer;
+
+    public Player(GamePlayer gamePlayer) {
+        mGamePlayer = gamePlayer;
+        mLifeTotal = 20;
     }
 
     public int getLifeTotal() {
-        return lifeTotal;
+        return mLifeTotal;
     }
 
     public void incrementLifeTotal() {
-        lifeTotal += 1;
+        mLifeTotal += 1;
+    }
+
+    public GamePlayer getGamePlayer() {
+        return mGamePlayer;
     }
 
     public void incrementLifeTotal(int delta) {
-        lifeTotal += delta;
+        mLifeTotal += delta;
     }
 
     public void decrementLifeTotal() {
-        lifeTotal -= 1;
+        mLifeTotal -= 1;
     }
 }

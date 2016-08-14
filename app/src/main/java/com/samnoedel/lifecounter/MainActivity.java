@@ -3,9 +3,7 @@ package com.samnoedel.lifecounter;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 
 public class MainActivity extends Activity {
@@ -29,6 +27,14 @@ public class MainActivity extends Activity {
         FragmentManager fm = getFragmentManager();
         Fragment p1Fragment = fm.findFragmentById(R.id.playerOneFragmentContainer);
         Fragment p2Fragment = fm.findFragmentById(R.id.playerTwoFragmentContainer);
+        Fragment midbarFragment = fm.findFragmentById(R.id.midbar);
+
+        if (midbarFragment == null) {
+            midbarFragment = new MidbarFragment();
+            fm.beginTransaction()
+                    .add(R.id.midbar, midbarFragment)
+                    .commit();
+        }
 
         if (p1Fragment == null) {
             p1Fragment = new PlayerFragment();
