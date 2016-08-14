@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Life Counter</string>
+    <string name="zero">0</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+
+    <!-- Accessibility -->
+    <string name="acc_divider">Player divider</string>
+</resources>
