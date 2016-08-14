@@ -1,19 +1,25 @@
 package com.samnoedel.lifecounter;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class PlayerFragment extends Fragment {
+
+    private static final String TAG = PlayerFragment.class.getName();
 
     private Player mPlayer;
     private Button mMinusButton;
     private Button mPlusButton;
     private TextView mLifeTotal;
+    private ImageView mSettingsIcon;
 
     public PlayerFragment() {
         // Required empty public constructor
@@ -40,6 +46,7 @@ public class PlayerFragment extends Fragment {
         mMinusButton = (Button)v.findViewById(R.id.minus_button);
         mPlusButton = (Button)v.findViewById(R.id.plus_button);
         mLifeTotal = (TextView)v.findViewById(R.id.life_total);
+        mSettingsIcon = (ImageView)v.findViewById(R.id.settingsIcon);
 
         updateLifeTotal();
         wireEvents();
@@ -81,10 +88,18 @@ public class PlayerFragment extends Fragment {
                 return true;
             }
         });
+
+        mSettingsIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Start settings activity
+                Intent intent = new Intent(getActivity(), PreferencesActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void updateLifeTotal() {
-        new IdleService().resetIdleTime(getActivity().getWindow());
         String text = Integer.toString(mPlayer.getLifeTotal());
         mLifeTotal.setText(text);
     }

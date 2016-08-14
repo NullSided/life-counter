@@ -3,14 +3,28 @@ package com.samnoedel.lifecounter;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 
 public class MainActivity extends Activity {
+
+    private View mRootView;
+    private IdleService mIdleService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mRootView = findViewById(R.id.rootView);
+        mRootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new IdleService().resetIdleTime(getWindow());
+            }
+        });
 
         FragmentManager fm = getFragmentManager();
         Fragment p1Fragment = fm.findFragmentById(R.id.playerOneFragmentContainer);
@@ -30,7 +44,14 @@ public class MainActivity extends Activity {
                     .commit();
         }
 
-        new IdleService().startIdleTimer(getWindow(), 5000);
+        mIdleService = new IdleService();
+        mIdleService.startIdleTimer(getWindow(), 5000);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mIdleService.resetIdleTime(getWindow());
     }
 
     @Override

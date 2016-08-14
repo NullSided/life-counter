@@ -5,5 +5,18 @@
         android:title="@string/pref_dimTimeout"
         android:entries="@array/pref_dimTimeouts_entries"
         android:entryValues="@array/pref_dimTimeouts_values"
-        android:defaultValue="@string/pref_dimTimeout15"/>
+        android:defaultValue="15000"/>
+    <ListPreference
+        android:key="pref_timer_type"
+        android:title="@string/pref_timerType"
+        android:entries="@array/pref_timerType"
+        android:entryValues="@array/pref_timerType_values"
+        android:defaultValue="@string/pref_timerTypeNone_value"/>
+    <ListPreference
+        android:key="pref_timer_duration"
+        android:title="@string/pref_timerDuration"
+        android:dependency="pref_timer_type"
+        android:entries="@array/pref_timerDuration"
+        android:entryValues="@array/pref_timerDuration_values"
+        android:defaultValue="20"/>
 </PreferenceScreen>

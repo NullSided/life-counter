@@ -1,5 +1,8 @@
 <resources>
+    <!-- Global -->
     <string name="app_name">Life Counter</string>
+
+    <!-- Player Fragment -->
     <string name="zero">0</string>
     <string name="minus">-</string>
     <string name="plus">+</string>
@@ -11,10 +14,25 @@
     <string name="pref_dimTimeout60">1 Minute</string>
     <string name="pref_dimTimeoutNever">Never</string>
 
+    <string name="pref_timerType">Game Timer</string>
+    <string name="pref_timerTypeNone">No Timer</string>
+    <string name="pref_timerTypeGlobal">Global Timer</string>
+    <string name="pref_timerTypePlayer">Player Timer</string>
+    <string name="pref_timerTypeNone_value">0</string>
+    <string name="pref_timerTypeGlobal_value">1</string>
+    <string name="pref_timerTypePlayer_value">2</string>
+
+    <string name="pref_timerDuration">Timer Duration</string>
+    <string name="pref_timerDuration1">1 Minute</string>
+    <string name="pref_timerDuration3">3 Minutes</string>
+    <string name="pref_timerDuration5">5 Minutes</string>
+    <string name="pref_timerDuration10">10 Minutes</string>
+    <string name="pref_timerDuration20">20 Minutes</string>
+    <string name="pref_timerDuration30">30 Minutes</string>
+    <string name="pref_timerDuration45">45 Minutes</string>
+    <string name="pref_timerDuration60">60 Minutes</string>
+
     <!-- Accessibility -->
     <string name="acc_divider">Player divider</string>
     <string name="acc_player_settings">Player settings</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

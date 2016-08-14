@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_dimTimeouts_entries">
+        <item>@string/pref_dimTimeout15</item>
+        <item>@string/pref_dimTimeout30</item>
+        <item>@string/pref_dimTimeout60</item>
+        <item>@string/pref_dimTimeoutNever</item>
+    </string-array>
+    <string-array name="pref_dimTimeouts_values">
+        <item>15000</item>
+        <item>30000</item>
+        <item>60000</item>
+        <item>0</item>
+    </string-array>
+
+    <string-array name="pref_timerType">
+        <item>@string/pref_timerTypeNone</item>
+        <item>@string/pref_timerTypeGlobal</item>
+        <item>@string/pref_timerTypePlayer</item>
+    </string-array>
+    <string-array name="pref_timerType_values">
+        <item>@string/pref_timerTypeNone_value</item>
+        <item>@string/pref_timerTypeGlobal_value</item>
+        <item>@string/pref_timerTypePlayer_value</item>
+    </string-array>
+
+    <string-array name="pref_timerDuration">
+        <item>@string/pref_timerDuration1</item>
+        <item>@string/pref_timerDuration3</item>
+        <item>@string/pref_timerDuration5</item>
+        <item>@string/pref_timerDuration10</item>
+        <item>@string/pref_timerDuration20</item>
+        <item>@string/pref_timerDuration30</item>
+        <item>@string/pref_timerDuration45</item>
+        <item>@string/pref_timerDuration60</item>
+    </string-array>
+    <string-array name="pref_timerDuration_values">
+        <item>1</item>
+        <item>3</item>
+        <item>5</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+    </string-array>
+</resources>
