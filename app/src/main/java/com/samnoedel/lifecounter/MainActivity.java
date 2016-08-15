@@ -8,7 +8,6 @@ import android.view.View;
 
 public class MainActivity extends Activity {
 
-    private View mRootView;
     private IdleService mIdleService;
 
     @Override
@@ -16,8 +15,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mRootView = findViewById(R.id.rootView);
-        mRootView.setOnClickListener(new View.OnClickListener() {
+        View rootView = findViewById(R.id.rootView);
+        rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new IdleService().resetIdleTime(getWindow());
@@ -25,27 +24,16 @@ public class MainActivity extends Activity {
         });
 
         FragmentManager fm = getFragmentManager();
-        Fragment p1Fragment = fm.findFragmentById(R.id.playerOneFragmentContainer);
-        Fragment p2Fragment = fm.findFragmentById(R.id.playerTwoFragmentContainer);
         Fragment midbarFragment = fm.findFragmentById(R.id.midbar);
 
         if (midbarFragment == null) {
             midbarFragment = new MidbarFragment();
+            Fragment p1Fragment = new PlayerFragment();
+            Fragment p2Fragment = new PlayerFragment();
+
             fm.beginTransaction()
                     .add(R.id.midbar, midbarFragment)
-                    .commit();
-        }
-
-        if (p1Fragment == null) {
-            p1Fragment = new PlayerFragment();
-            fm.beginTransaction()
                     .add(R.id.playerOneFragmentContainer, p1Fragment)
-                    .commit();
-        }
-
-        if (p2Fragment == null) {
-            p2Fragment = new PlayerFragment();
-            fm.beginTransaction()
                     .add(R.id.playerTwoFragmentContainer, p2Fragment)
                     .commit();
         }

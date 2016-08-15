@@ -47,11 +47,9 @@ public class GameTimeRepository {
     }
 
     public long getRemainingTime(GamePlayer gamePlayer) {
-        long now = new Date().getTime();
-
         switch (mGameTimeMode) {
             case MODE_GLOBAL:
-                return mGameStartedAt + mGameTime - now;
+                return mGameStartedAt + mGameTime - new Date().getTime();
             case MODE_PLAYER:
                 return getPlayerElapsedTime(gamePlayer);
             case MODE_NONE:

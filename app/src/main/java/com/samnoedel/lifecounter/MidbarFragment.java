@@ -69,7 +69,7 @@ public class MidbarFragment extends Fragment {
                 if (p1Time <= 0 || p2Time <= 0) {
                     return;
                 }
-                
+
                 mPlayer1Clock.setText(formatTicks(p1Time));
                 mPlayer2Clock.setText(formatTicks(p2Time));
                 scheduleTimeUpdate();
