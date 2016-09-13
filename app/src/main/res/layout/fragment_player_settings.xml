@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="56dp"
+              android:layout_height="32dp"
+              android:paddingBottom="6dp"
+              android:paddingTop="6dp"
+              android:paddingStart="12dp"
+              android:paddingEnd="12dp"
+              android:background="@drawable/player_settings"
+              tools:context="com.samnoedel.lifecounter.PlayerSettingsFragment">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:src="@drawable/clock"
+            android:contentDescription="@string/acc_player_settings_time"/>
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:src="@drawable/brush"
+            android:contentDescription="@string/acc_player_settings_theme"/>
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:src="@drawable/heart"
+            android:contentDescription="@string/acc_player_settings_heart"/>
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:src="@drawable/reset"
+            android:contentDescription="@string/acc_player_settings_reset"/>
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/cog"
+            android:contentDescription="@string/acc_player_settings_cog"/>
+
+</LinearLayout>

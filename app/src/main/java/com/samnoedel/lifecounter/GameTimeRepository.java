@@ -46,6 +46,10 @@ public class GameTimeRepository {
         }
     }
 
+    public GamePlayer getCurrentPlayer() {
+        return mCurrentPlayer;
+    }
+
     public long getRemainingTime(GamePlayer gamePlayer) {
         long now = new Date().getTime();
 

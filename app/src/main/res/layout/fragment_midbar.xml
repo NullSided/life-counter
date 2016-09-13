@@ -1,22 +1,33 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.samnoedel.lifecounter.MidbarFragment">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                tools:context="com.samnoedel.lifecounter.MidbarFragment">
 
     <TextView
         android:id="@+id/player1Clock"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
+        android:paddingEnd="36dp"
         android:text="00:00"
-        android:textSize="24sp"/>
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/player1Clock"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/clock"/>
 
     <ImageView
         android:id="@+id/passTurn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:overScrollMode="never"
@@ -26,12 +37,22 @@
 
     <TextView
         android:id="@+id/player2Clock"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:rotation="180"
         android:text="00:00"
-        android:textSize="24sp"/>
+        android:paddingEnd="36dp"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/player2Clock"
+        android:layout_marginStart="8dp"
+        android:rotation="180"
+        android:src="@drawable/clock"/>
 
 </RelativeLayout>
