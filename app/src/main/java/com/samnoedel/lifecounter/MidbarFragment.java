@@ -1,9 +1,10 @@
 package com.samnoedel.lifecounter;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.format.DateUtils;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,6 @@ public class MidbarFragment extends Fragment {
     private Handler mHandler;
     private GameTimeRepository mGameTimeRepo;
     private ImageView mPassTurnButton;
-    private StringBuilder mStringBuilder;
 
     public MidbarFragment() {
         // Required empty public constructor
@@ -30,9 +30,8 @@ public class MidbarFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         mHandler = new Handler();
-        mStringBuilder = new StringBuilder();
         mGameTimeRepo = GameTimeRepository.instance;
-        mGameTimeRepo.startGame(GamePlayer.PLAYER_ONE, GameTimeMode.MODE_PLAYER, TICKS_ONE_MINUTE * 15);
+        mGameTimeRepo.startGame(GamePlayer.PLAYER_ONE, GameTimeMode.MODE_PLAYER, TICKS_ONE_MINUTE);
     }
 
     @Override
@@ -66,7 +65,15 @@ public class MidbarFragment extends Fragment {
                 long p1Time = mGameTimeRepo.getRemainingTime(GamePlayer.PLAYER_ONE);
                 long p2Time = mGameTimeRepo.getRemainingTime(GamePlayer.PLAYER_TWO);
 
+                mPlayer1Clock.setTextColor(getPlayerTimerColor(GamePlayer.PLAYER_ONE));
+                mPlayer2Clock.setTextColor(getPlayerTimerColor(GamePlayer.PLAYER_TWO));
+
+                mPlayer1Clock.setText(formatTicks(p1Time));
+                mPlayer2Clock.setText(formatTicks(p2Time));
+
                 if (p1Time <= 0 || p2Time <= 0) {
+                    Vibrator v = (Vibrator)getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                    v.vibrate(2000);
                     return;
                 }
 
@@ -81,5 +88,23 @@ public class MidbarFragment extends Fragment {
         long minutes = ticks / TICKS_ONE_MINUTE;
         long seconds = ticks / 1000 - minutes * 60;
         return String.format("%1$02d:%2$02d", minutes, seconds);
+    }
+
+    private int getPlayerTimerColor(GamePlayer player) {
+        if (mGameTimeRepo.getRemainingTime(GamePlayer.PLAYER_ONE) <= 0) {
+            return player == GamePlayer.PLAYER_ONE
+                    ? getResources().getColor(R.color.red)
+                    : getResources().getColor(R.color.black);
+        }
+
+        if (mGameTimeRepo.getRemainingTime(GamePlayer.PLAYER_TWO) <= 0) {
+            return player == GamePlayer.PLAYER_TWO
+                    ? getResources().getColor(R.color.red)
+                    : getResources().getColor(R.color.black);
+        }
+
+        return mGameTimeRepo.getCurrentPlayer() == player
+                ? getResources().getColor(R.color.blue)
+                : getResources().getColor(R.color.black);
     }
 }

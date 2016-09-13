@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
         FragmentManager fm = getFragmentManager();
         Fragment midbarFragment = fm.findFragmentById(R.id.midbar);
 
+
         if (midbarFragment == null) {
             midbarFragment = new MidbarFragment();
             Fragment p1Fragment = new PlayerFragment();

@@ -1,29 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rootView"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.samnoedel.lifecounter.MainActivity"
-    android:keepScreenOn="true">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/rootView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.samnoedel.lifecounter.MainActivity"
+                android:keepScreenOn="true">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_white"
+        android:scaleType="fitXY"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:baselineAligned="false"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp">
+
+        <FrameLayout
+            android:id="@+id/playerTwoFragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:rotation="180"/>
+
+        <FrameLayout
+            android:id="@+id/playerOneFragmentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
 
     <FrameLayout
-        android:id="@+id/playerTwoFragmentContainer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:rotation="180"/>
+        android:id="@+id/playerTwoSettingsFragmentContainer"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:rotation="180"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"/>
 
     <FrameLayout
         android:id="@+id/midbar"
         android:layout_width="match_parent"
+        android:layout_centerVertical="true"
         android:layout_height="100dp"/>
 
     <FrameLayout
-        android:id="@+id/playerOneFragmentContainer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:id="@+id/playerOneSettingsFragmentContainer"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="16dp"/>
 
-</LinearLayout>
+</RelativeLayout>
